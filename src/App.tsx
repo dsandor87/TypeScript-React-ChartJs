@@ -1,3 +1,4 @@
+import { Global, css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { findRenderedDOMComponentWithTag } from "react-dom/test-utils";
 import CountryList from "./components/CoutryList";
@@ -28,7 +29,14 @@ const App:React.FunctionComponent = () =>{
 
 
   return (
-    <div>{
+    <div>
+
+      <Global styles={css`
+      body {
+        background-color: #eeeeee;
+      }`}/>
+      
+      {
     data? (
       <>
 <GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>
