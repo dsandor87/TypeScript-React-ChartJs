@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { findRenderedDOMComponentWithTag } from "react-dom/test-utils";
 
-function App() {
+const App:React.FunctionComponent = () =>{
+
+  const [data, setData] = useState(undefined)
+
+  const fetchData = async() => {
+    const result = await fetch('https://api.covid19api.com/summary')
+    const data = await result.json()
+
+    setData(data)
+    console.log(data)
+  }
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Global Covid-19 data</h1>
     </div>
   );
 }
+
 
 export default App;
