@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { findRenderedDOMComponentWithTag } from "react-dom/test-utils";
+import GlobalInfo from "./components/GlobalInfo";
 
 
 
@@ -57,8 +58,10 @@ const App:React.FunctionComponent = () =>{
 
 
   return (
-    <div>
-      <h1>Global Covid-19 data</h1>
+    <div>{
+    data? (
+<GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>) :('Loading...')
+}
     </div>
   );
 }
