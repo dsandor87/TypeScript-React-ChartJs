@@ -56,10 +56,11 @@ const App:React.FunctionComponent = () =>{
         background-color: #eeeeee;
       }`
       }/>
-{activeCountries.map(aCountry => <span>{aCountry.Country }</span>)}
+
 
       
       {
+    
     data? (
       <>
 <GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>
