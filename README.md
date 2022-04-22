@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Covid-19 App
+Web app by using React, Typescript, Emotion (CSS-in-JS library) and Chart.js for displaying relevant COVID-19 data. 
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
