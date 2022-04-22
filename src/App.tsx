@@ -1,5 +1,6 @@
 import { Global, css } from "@emotion/react";
 import { useEffect, useState } from "react";
+import BarChart from "./components/BarChart";
 import CountryList from "./components/CoutryList";
 import GlobalInfo from "./components/GlobalInfo";
 import { ResponseData, Country } from "./types";
@@ -64,6 +65,9 @@ const App:React.FunctionComponent = () =>{
     data? (
       <>
 <GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>
+<hr/>
+{activeCountries.length ? <BarChart countries={activeCountries}/>: null}
+
 <CountryList countries={data?.Countries} onItemClick={onCountryClick}/>
 </>
 ) :('Loading...')
