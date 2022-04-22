@@ -1,9 +1,13 @@
 # Covid-19 App
 Web app by using React, Typescript, Emotion (CSS-in-JS library) and Chart.js for displaying relevant COVID-19 data. 
 
+Check out the [Deployed Project](https://62628bcc578849093855bd73--celadon-puffpuff-5538b5.netlify.app/)
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
 
 ## Available Scripts
 
