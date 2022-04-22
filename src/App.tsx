@@ -1,41 +1,11 @@
 import { useEffect, useState } from "react";
 import { findRenderedDOMComponentWithTag } from "react-dom/test-utils";
+import CountryList from "./components/CoutryList";
 import GlobalInfo from "./components/GlobalInfo";
+import { ResponseData } from "./types";
 
 
 
-type Country = {
-  Country: string;
-  CountryCode: string;
-  Date: string;
-  ID: number;
-  NewConfirmed: number;
-  NewDeaths: number;
-  NewRecovered: number;
-  Premium: unknown
-  Slug: string;
-  TotalConfirmed: number;
-  TotalDeaths: number;
-  TotalRecovered: string;
-}
-
-type GlobalData = {
-  Date: string;
-  NewConfirmed: number;
-  NewDeaths: number;
-  NewRecovered: number;
-  TotalConfirmed: number;
-  TotalDeaths: number;
-  TotalRecovered:number;
-  }
-
-type ResponseData = {
-  Countries: Country[];
-  Date: string;
-  Global: GlobalData;
-  ID: string;
-  Message : string;
-}
 
 
 const App:React.FunctionComponent = () =>{
@@ -60,7 +30,11 @@ const App:React.FunctionComponent = () =>{
   return (
     <div>{
     data? (
-<GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>) :('Loading...')
+      <>
+<GlobalInfo newConfirmed={data?.Global.NewConfirmed} newDeths={data?.Global.NewDeaths}newRecovered={data?.Global.NewRecovered}/>
+<CountryList countries={data?.Countries}/>
+</>
+) :('Loading...')
 }
     </div>
   );
