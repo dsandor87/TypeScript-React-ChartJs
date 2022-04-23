@@ -18,6 +18,8 @@ const App:React.FunctionComponent = () =>{
   const fetchData = async() => {
     const result = await fetch('https://api.covid19api.com/summary')
     const data: ResponseData = await result.json()
+    
+    data.Countries.sort((a, b) =>  b.NewConfirmed - a.NewConfirmed);
 
     setData(data)
     console.log(data)
